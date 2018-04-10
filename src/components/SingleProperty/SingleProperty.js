@@ -80,7 +80,6 @@ class SingleProperty extends Component {
 
 
     render() { 
-      
         // destructuring state 
         const {fName, lName, phone, email, emergContact, emergNum, propValue, downPayment, mortgage, dues, taxes, insurance, utilities} = this.state;
       

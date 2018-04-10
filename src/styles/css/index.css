@@ -233,4 +233,10 @@ body {
   .contractors-header h1 {
     padding-left: 60px; }
 
+.buttons {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  flex-wrap: wrap; }
+
 /*# sourceMappingURL=index.css.map */

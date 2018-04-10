@@ -33,8 +33,9 @@ class Contractors extends Component {
 
     handleExpandChange = (expanded, fName, lName, phone, email, street, city, state, zip, index) => {
         let data = this.props.contractors.contractors[index];
-        // console.log(data, "data");
-        console.log(index, "index");
+        console.log(this.props.contractors.contractors[index]);
+        console.log(data, "data");
+        console.log(index, "index")
         this.setState({
             expanded: expanded,
             fName: data.f_name,
@@ -56,6 +57,7 @@ class Contractors extends Component {
     }
 
     handleContractorEdit(fName, lName, phone, email, street, city, state, zip, conId){
+        console.log(conId)
         this.props.editContractor(fName, lName, phone, email, street, city, state, zip, conId).then((res) => {
             this.props.getContractors();
         })
@@ -64,14 +66,14 @@ class Contractors extends Component {
     render() {
 
         const {fName, lName, phone, email, street, city, state, zip} = this.state;
+        console.log(this.state)
         
         const contractorsData = this.props.contractors.contractors;
         let contractorsList;
         if(contractorsData !== undefined && contractorsData.length !== 0) {
             contractorsList = [].concat(contractorsData)
-            .sort((a, b) => a.company_name > b.company_name)
             .map((curr, index) => {
-                console.log(curr);
+                console.log(index," map index");
                 return(
                     <div className="individual-contractor" key={index}>
                         <Card onClick={() => {this.handleExpandChange(this.state.expanded, curr.f_name, curr.l_name, curr.phone, curr.email, curr.street, curr.city, curr.state, curr.zip, index)}}>
@@ -88,7 +90,6 @@ class Contractors extends Component {
                                 defaultValue={curr.f_name} 
                                 id="text-field-controlled" 
                                 onChange={ (event) => {
-                                console.log(event.target.value)
                                 this.setState({ fName: event.target.value }) 
                               }} />
             
@@ -99,7 +100,6 @@ class Contractors extends Component {
                                 defaultValue={curr.l_name}  
                                 id="text-field-controlled"
                                 onChange={ (event) => {
-                                console.log(event.target.value)
                                 this.setState({ lName: event.target.value })
                               }} />
 
@@ -110,7 +110,6 @@ class Contractors extends Component {
                                 defaultValue={curr.phone} 
                                 id="text-field-controlled" 
                                 onChange={ (event) => {
-                                console.log(event.target.value)
                                 this.setState({ phone: event.target.value }) 
                               }} />
 
@@ -121,7 +120,6 @@ class Contractors extends Component {
                                 defaultValue={curr.email}  
                                 id="text-field-controlled"
                                 onChange={ (event) => {
-                                console.log(event.target.value)
                                 this.setState({ email: event.target.value })
                               }} />
 
@@ -132,7 +130,6 @@ class Contractors extends Component {
                                 defaultValue={curr.street} 
                                 id="text-field-controlled" 
                                 onChange={ (event) => {
-                                console.log(event.target.value)
                                 this.setState({ street: event.target.value }) 
                               }} />
 
@@ -143,7 +140,6 @@ class Contractors extends Component {
                                 defaultValue={curr.city}  
                                 id="text-field-controlled"
                                 onChange={ (event) => {
-                                console.log(event.target.value)
                                 this.setState({ city: event.target.value })
                               }} />
 
@@ -154,7 +150,6 @@ class Contractors extends Component {
                                 defaultValue={curr.state} 
                                 id="text-field-controlled" 
                                 onChange={ (event) => {
-                                console.log(event.target.value)
                                 this.setState({ state: event.target.value }) 
                               }} />
 
@@ -165,21 +160,22 @@ class Contractors extends Component {
                                 defaultValue={curr.zip}  
                                 id="text-field-controlled"
                                 onChange={ (event) => {
-                                console.log(event.target.value)
                                 this.setState({ zip: event.target.value })
                               }} />
 
                               <br />
-
-                              <CardActions>
-                                <FlatButton label="Save" onClick={() => {this.handleContractorEdit(fName, lName, phone, email, street, city, state, zip, curr.id)}} />
-                              </CardActions>
-                              
-                              </CardText>
-                    
+                            <div className="buttons">
+                            <CardActions>
+                              <FlatButton label="Save" onClick={() => {this.handleContractorEdit(fName, lName, phone, email, street, city, state, zip, curr.id)}} />
+                            </CardActions>
+                            
+                            <CardActions>
+                            <FlatButton label="delete" onClick ={() =>
+                              {this.handleDelete(curr.id)}} />
+                            </CardActions>
+                            </div>
+                            </CardText>
                         </Card>
-                     <button className="delete-con-btn" onClick ={() =>
-                    {this.handleDelete(curr.id)}}>Delete</button>
                     </div>
                 )
             })
