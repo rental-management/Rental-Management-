@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,qBAAsB;EAClB,MAAM,EAAE,KAAK;EACb,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,MAAM",
-"sources": ["../scss/TotalExpensesChart.scss"],
-"names": [],
-"file": "TotalExpensesChart.css"
-}

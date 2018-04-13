@@ -8,6 +8,7 @@ import IconButton from 'material-ui/IconButton';
 import Paper from 'material-ui/Paper';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import {blue900} from 'material-ui/styles/colors';
+const {REACT_APP_LOGOUT} = process.env;
 
 
 class NavBar extends Component {
@@ -83,6 +84,11 @@ class NavBar extends Component {
         <Link to="/financial">
           <MenuItem style={{ color: '#686868' }}className="item" onClick={this.handleClose}>Analytics</MenuItem>
         </Link>
+        <Link to = '/'>
+                <MenuItem className = 'item'>LOGOUT</MenuItem>
+                </Link>
+
+
   </MuiThemeProvider>      
   </div>
 

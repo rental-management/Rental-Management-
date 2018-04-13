@@ -17,6 +17,8 @@
 .env.production.local
 .env
 .sass-cache
+koala-config.json
+
 
 npm-debug.log*
 yarn-debug.log*

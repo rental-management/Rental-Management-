@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,iBAAkB;EACd,OAAO,EAAE,IAAI;EACb,MAAM,EAAE,MAAM;EACd,KAAK,EAAE,IAAI",
-"sources": ["../scss/PropForm.scss"],
-"names": [],
-"file": "PropForm.css"
-}

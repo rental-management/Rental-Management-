@@ -29,7 +29,6 @@ class WorkOrders extends Component {
     
     render() {        
 let workOrderArr = this.props.properties.workOrders;
-console.log(this.props);
 let workOrdersList;
 if(workOrderArr.length !== 0 && workOrderArr !== undefined){
     workOrderArr = workOrderArr.sort(function(a,b) {
